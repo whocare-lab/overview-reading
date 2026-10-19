@@ -10,7 +10,7 @@ A Claude skill (skill name: `lit-synthesis`) for graduate students in management
 English paper (PDF) ──► close-reading (one paper) ──► reading card + literature matrix ──► lit-synthesis (many papers) ──► concept matrix, argument outline, research gaps, draft review
 ```
 
-The single-paper skill lives in [whocare-lab/close-reading-claude](https://github.com/whocare-lab/close-reading-claude). lit-synthesis works best on its reading cards and `matrix.csv`; given only PDFs, it reads each paper first.
+The single-paper skill lives in [whocare-lab/close-reading](https://github.com/whocare-lab/close-reading). lit-synthesis works best on its reading cards and `matrix.csv`; given only PDFs, it reads each paper first.
 
 ## Outputs
 

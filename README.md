@@ -11,7 +11,7 @@
 英文文獻 PDF ──► close-reading（一次一篇）──► 精讀卡＋文獻矩陣 ──► lit-synthesis（多篇）──► 概念矩陣、論證大綱、研究缺口、文獻探討初稿
 ```
 
-第一步的單篇精讀 skill 在另一個 repo：[whocare-lab/close-reading-claude](https://github.com/whocare-lab/close-reading-claude)。
+第一步的單篇精讀 skill 在另一個 repo：[whocare-lab/close-reading](https://github.com/whocare-lab/close-reading)。
 lit-synthesis 的最佳輸入就是 close-reading 產出的精讀卡與 `matrix.csv`；只有 PDF 時，skill 會先請 Claude 逐篇精讀。
 
 ## 產出
