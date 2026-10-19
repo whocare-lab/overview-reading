@@ -33,7 +33,7 @@ lit-synthesis 的最佳輸入就是 close-reading 產出的精讀卡與 `matrix.
 - **缺口不寫空話**：「目前相關研究較少」「本研究填補此一缺口」這類句子，沒有具體證據就會被改寫。
 - **文獻量不足會警告**：少於 5 篇標「初步整合」，少於 3 篇不下缺口定論。
 - **引用檢查程式** `check_citations.py`：檢查文內引用與參考文獻是否一一對應、引用的文獻是否都有精讀卡（抓出憑記憶加入的文獻）、APA 7 的 et al. 寫法是否一致。中英文引用都支援。
-- **引文核對** `verify_quotes.py`：可同時比對多篇 PDF，確認初稿中的直接引文逐字存在、出自哪一篇哪一頁。
+- **引文核對** `verify_quotes.py`：可同時比對多篇 PDF，確認初稿中的直接引文逐字存在、出自哪一篇，並比對文中標註的頁碼是否正確。
 
 ## 輸出語言
 預設繁體中文。用英文提問，或說「English」「英文版」，就改用英文撰寫。
@@ -93,10 +93,17 @@ pip install pypdfium2
 
 **兩篇只是示範**，真正的文獻探討需要更多文獻；skill 會在文獻量不足時提醒你。
 
+另以 6 篇生態系文獻（1 篇 SMJ、1 篇 HBR、3 篇 BCG、1 篇 McKinsey）完整測試一次：先逐篇精讀，再整合成概念矩陣、論證大綱、4 個研究缺口與文獻探討初稿。
+- 正確標出證據強度問題：6 篇中只有 1 篇同儕審查、實證研究 0 篇。
+- 發現同一系列 BCG 文章引用的樣本說法不一致（57 個、逾 100 個、80 多個生態系）。
+- 初稿 28 次文內引用全部通過引用檢查；7 張精讀卡與初稿共 77 則引文，全部逐字找到且頁碼正確。
+- 測試中發現一處頁碼寫錯（PDF 第 1 頁是封面），因此為 `verify_quotes.py` 加上頁碼比對；該錯誤現在會被標為 PAGE MISMATCH。
+（此測試的產出涉及個人研究內容，未放入 repo。）
+
 自行核對：
 ```bash
 python lit-synthesis/scripts/check_citations.py 文獻探討初稿.md literature/matrix.csv
-python lit-synthesis/scripts/verify_quotes.py 文獻1.pdf 文獻2.pdf 文獻探討初稿.md
+python lit-synthesis/scripts/verify_quotes.py --offset 文獻1.pdf=0 --offset 文獻2.pdf=38 文獻1.pdf 文獻2.pdf 文獻探討初稿.md
 ```
 
 ## 使用時請注意

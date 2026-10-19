@@ -30,7 +30,7 @@ Trigger with "synthesize these papers", "write my literature review", "identify 
 - **No empty gap statements** without evidence.
 - **Thin-corpus warnings**: under 5 papers is preliminary; under 3, no definitive gaps.
 - **`check_citations.py`**: in-text citations vs. reference list, cited works without a reading card, APA 7 "et al." usage; English and Chinese citations.
-- **`verify_quotes.py`**: checks direct quotes against several PDFs at once and reports the source paper and page.
+- **`verify_quotes.py`**: checks direct quotes against several PDFs at once, reports the source paper, and with `--offset` confirms the cited page number.
 
 ## Installation
 1. Fill in `lit-synthesis/references/my-research.md` (or copy the one from close-reading).
@@ -43,7 +43,7 @@ pip install pypdfium2
 ```
 
 ## Example
-`examples/input/` holds two reading cards from close-reading (Adner, 2017; Pidun et al., 2021); `examples/output/` holds the synthesis. The skill raised the thin-corpus warning, found zero empirical studies and no non-profit or education context, identified one disagreement and one shared assumption, and its draft passed both the citation check and the quote check. Two papers are only a demonstration.
+`examples/input/` holds two reading cards from close-reading (Adner, 2017; Pidun et al., 2021); `examples/output/` holds the synthesis. The skill raised the thin-corpus warning, found zero empirical studies and no non-profit or education context, identified one disagreement and one shared assumption, and its draft passed both the citation check and the quote check. Two papers are only a demonstration. A fuller test on six ecosystem papers (one SMJ, one HBR, three BCG, one McKinsey) flagged that only one is peer-reviewed, found inconsistent sample sizes across the BCG series, and passed all 28 citation checks and all 77 quote-and-page checks; its outputs involve personal research and are not published here.
 
 ## Notes
 Outputs are study aids, not submittable work: rewrite drafts in your own words and verify every citation. "No study has examined…" is a strong claim; the skill can only judge from the papers you supplied.
